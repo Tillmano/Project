@@ -13,6 +13,7 @@ class Graph<T> {
 
     // This function adds the edge
     // between source to destination
+
     public void addEdge(T source,
                         T destination,
                         boolean bidirectional)
@@ -28,7 +29,17 @@ class Graph<T> {
         if (bidirectional == true) {
             map.get(destination).add(source);
         }
+
     }
+
+    /*public void addResistor extends addEdge{
+
+    }
+
+    public void addVoltageSource extends addEdge{
+
+    }*/
+
 
     // This function gives the count of vertices
     public void getVertexCount()
@@ -110,13 +121,25 @@ public class nn {
         // edges are added.
         // Since the graph is bidirectional,
         // so boolean bidirectional is passed as true.
-        g.addEdge(0, 1, true);
+        int edgeCount;
+        Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter number of components");
+        edgeCount = scanner.nextInt();
+
+        for (int i = 0; i < edgeCount; i++){
+            System.out.println("Enter source node");
+            int sourceNode = scanner.nextInt();
+            System.out.println("Enter destination node");
+            int destNode = scanner.nextInt();
+            g.addEdge(sourceNode, destNode, true);
+        }
+        /*g.addEdge(0, 1, true);
         g.addEdge(0, 4, true);
         g.addEdge(1, 2, true);
         g.addEdge(1, 3, true);
         g.addEdge(1, 4, true);
         g.addEdge(2, 3, true);
-        g.addEdge(3, 4, true);
+        g.addEdge(3, 4, true);*/
 
         // print the graph.
         System.out.println("Graph:\n"
