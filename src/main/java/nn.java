@@ -13,8 +13,20 @@ class Graph<T> {
 
     // This function adds the edge
     // between source to destination
-
-    public void addEdge(T source,
+    public class Component{
+        private int source, destination, ID;
+        boolean bidirectional = true;
+    }
+    private class Resistor extends Component{
+        private double resistance;
+    }
+    private class VoltageSource extends Component{
+        private double voltage;
+    }
+    private class VariableResistor extends Resistor{
+        private int maxResistance, minResistance;
+    }
+    public void addComponent(T source,
                         T destination,
                         boolean bidirectional)
     {
@@ -31,14 +43,6 @@ class Graph<T> {
         }
 
     }
-
-    /*public void addResistor extends addEdge{
-
-    }
-
-    public void addVoltageSource extends addEdge{
-
-    }*/
 
 
     // This function gives the count of vertices
@@ -64,8 +68,6 @@ class Graph<T> {
                 + " edges.");
     }
 
-    // This function gives whether
-    // a vertex is present or not.
     public void hasVertex(T s)
     {
         if (map.containsKey(s)) {
@@ -127,19 +129,19 @@ public class nn {
         edgeCount = scanner.nextInt();
 
         for (int i = 0; i < edgeCount; i++){
-            System.out.println("Enter source node");
-            int sourceNode = scanner.nextInt();
-            System.out.println("Enter destination node");
-            int destNode = scanner.nextInt();
-            g.addEdge(sourceNode, destNode, true);
+            GUI gui = new GUI(g);
+            gui.setVisible(true);
+            gui.setSize(300, 150);
+            gui.setTitle("Component Input");
         }
-        /*g.addEdge(0, 1, true);
-        g.addEdge(0, 4, true);
-        g.addEdge(1, 2, true);
-        g.addEdge(1, 3, true);
-        g.addEdge(1, 4, true);
-        g.addEdge(2, 3, true);
-        g.addEdge(3, 4, true);*/
+        boolean enter = false;
+        while (enter == false) {
+            Scanner s = new Scanner(System.in);  // Create a Scanner object
+            System.out.println("Enter true to enter graph");
+            enter = s.nextBoolean();
+
+        }
+
 
         // print the graph.
         System.out.println("Graph:\n"
